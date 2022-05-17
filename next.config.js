@@ -8,10 +8,7 @@ module.exports = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: [
-              "https://inventory-manager.chamodgamage.repl.co/*",
-              "https://replit.com/*",
-            ],
+            value: "*",
           },
           {
             key: "Access-Control-Allow-Methods",
