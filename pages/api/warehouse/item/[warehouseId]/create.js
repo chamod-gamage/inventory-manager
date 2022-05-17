@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
   const { warehouseId } = req.query;
   try {
-    if ((await Warehouse.find({ name, warehouse: warehouseId })).length)
+    if ((await Item.find({ name, warehouse: warehouseId })).length)
       throw new Error("Item already exists");
     const item = await Item.create({ name, quantity, warehouse: warehouseId });
     res.status(200).json(item);
