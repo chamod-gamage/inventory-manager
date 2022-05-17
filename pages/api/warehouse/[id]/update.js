@@ -8,6 +8,8 @@ export default async function handler(req, res) {
   const { name, location } = req.body;
   const { id } = req.query;
   try {
+    if ((await Warehouse.find({ name })).length)
+      throw new Error("Name already exists");
     const warehouse = await Warehouse.updateOne(
       { _id: id },
       { name, location },
