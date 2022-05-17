@@ -5,7 +5,7 @@ import { Item } from "../../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { id } = req.params;
+  const { id } = req.query;
   try {
     const item = await Item.findByIdAndDelete(id);
     res.status(200).json(item);

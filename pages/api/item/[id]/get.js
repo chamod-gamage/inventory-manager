@@ -5,9 +5,13 @@ import { Item } from "../../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { id } = req.params;
+  const { id } = req.query;
   try {
-    const item = await Item.findById(id);
+    const item = await Item.findById(id).populate(
+      "warehouse",
+      "name",
+      "Warehouse"
+    );
     res.status(200).json(item);
   } catch (e) {
     res.status(400).json(e);

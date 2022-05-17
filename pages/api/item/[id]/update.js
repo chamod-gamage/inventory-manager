@@ -5,8 +5,8 @@ import { Item } from "../../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { name, quantity, warehouseId } = req.query;
-  const { id } = req.params;
+  const { name, quantity, warehouseId } = req.body;
+  const { id } = req.query;
   try {
     const item = await Item.updateOne(
       { _id: id },

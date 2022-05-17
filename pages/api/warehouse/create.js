@@ -5,7 +5,7 @@ import { Warehouse } from "../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { name, location } = req.query;
+  const { name, location } = req.body;
   try {
     const warehouse = await Warehouse.create({ name, location });
     res.status(200).json(warehouse);

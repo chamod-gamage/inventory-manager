@@ -5,7 +5,7 @@ import { Warehouse } from "../../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { id } = req.params;
+  const { id } = req.query;
   try {
     const warehouse = await Warehouse.findByIdAndDelete(id);
     res.status(200).json(warehouse);

@@ -5,8 +5,8 @@ import { Warehouse } from "../../../../api/models";
 export default async function handler(req, res) {
   await dbConnect();
 
-  const { name, location } = req.query;
-  const { id } = req.params;
+  const { name, location } = req.body;
+  const { id } = req.query;
   try {
     const warehouse = await Warehouse.updateOne(
       { _id: id },
