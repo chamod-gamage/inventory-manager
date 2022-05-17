@@ -12,7 +12,7 @@ const Warehouse = ({ create, id }) => {
       if (id) {
         await fetch(
           `${
-            process.env.BASE_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
           }/api/warehouse/${id}`
         )
           .then((res) => res.json())
@@ -27,7 +27,9 @@ const Warehouse = ({ create, id }) => {
 
   const createWarehouse = async ({ name, location }) => {
     await fetch(
-      `${process.env.BASE_URL || "http://localhost:3000"}/api/warehouse/create`,
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      }/api/warehouse/create`,
       {
         method: "PUT",
         headers: {

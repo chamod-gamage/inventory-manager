@@ -9,7 +9,7 @@ export default function WarehouseListPage() {
     const fetchData = async () => {
       await fetch(
         `${
-          process.env.BASE_URL || "http://localhost:3000"
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
         }/api/warehouse/getAll`
       )
         .then((res) => res.json())

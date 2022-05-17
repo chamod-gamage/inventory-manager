@@ -14,7 +14,7 @@ const Item = ({ create, id }) => {
     const fetchData = async () => {
       await fetch(
         `${
-          process.env.BASE_URL || "http://localhost:3000"
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
         }/api/warehouse/getAll`
       )
         .then((res) => res.json())
@@ -25,7 +25,7 @@ const Item = ({ create, id }) => {
       if (id) {
         await fetch(
           `${
-            process.env.BASE_URL || "http://localhost:3000"
+            process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
           }/api/item/${id}/get`
         )
           .then((res) => res.json())
@@ -42,7 +42,7 @@ const Item = ({ create, id }) => {
   const putItem = async (body) => {
     const { name, quantity, warehouseId, id } = body;
     await fetch(
-      `${process.env.BASE_URL || "http://localhost:3000"}/api/${
+      `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/${
         id ? `item/${id}/update` : `warehouse/item/${warehouseId}/create`
       }`,
       {

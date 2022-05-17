@@ -9,7 +9,9 @@ export default function ItemListPage() {
   useEffect(() => {
     const fetchData = async () => {
       await fetch(
-        `${process.env.BASE_URL || "http://localhost:3000"}/api/item/getAll`
+        `${
+          process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+        }/api/item/getAll`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -21,7 +23,9 @@ export default function ItemListPage() {
 
   const deleteItem = async (id) => {
     await fetch(
-      `${process.env.BASE_URL || "http://localhost:3000"}/api/item/${id}/delete`
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      }/api/item/${id}/delete`
     )
       .then((res) => {
         if (!res.ok) {
