@@ -10,7 +10,7 @@ The Replit project is viewable here: https://replit.com/@ChamodGamage/inventory-
 Note that the deployment link works in its own tab.
 
 Here's a brief instructional video on how to use the application:
-https://www.loom.com/share/50b041d8441a4553955033d22ae6f6fd
+https://www.loom.com/share/30dc8c8e454e4d409a51aad9a5021ab4
 
 ## Database schema:
 ![image](https://user-images.githubusercontent.com/41309709/168906071-6eaabe61-b059-4ebb-afc3-c207dfd68566.png)
