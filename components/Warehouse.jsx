@@ -13,7 +13,7 @@ const Warehouse = ({ create, id }) => {
         await fetch(
           `${
             process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-          }/api/warehouse/${id}`
+          }/api/warehouse/${id}/get`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -25,11 +25,11 @@ const Warehouse = ({ create, id }) => {
     fetchData();
   }, []);
 
-  const createWarehouse = async ({ name, location }) => {
+  const putWarehouse = async ({ name, location }) => {
     await fetch(
       `${
         process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
-      }/api/warehouse/create`,
+      }/api/warehouse/${id ? `${id}/update` : `create`}`,
       {
         method: "PUT",
         headers: {
@@ -76,7 +76,7 @@ const Warehouse = ({ create, id }) => {
       <button
         onClick={async () => {
           if (edit) {
-            await createWarehouse({ name, location });
+            await putWarehouse({ name, location });
           }
         }}
       >

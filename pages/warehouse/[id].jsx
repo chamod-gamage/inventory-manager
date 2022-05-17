@@ -6,7 +6,7 @@ export default function WarehousePage() {
   return (
     <div>
       {JSON.stringify(router.query)}
-      <Warehouse id={router.query.id} />
+      <Warehouse create id={router.query.id} />
     </div>
   );
 }

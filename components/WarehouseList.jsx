@@ -18,6 +18,13 @@ const WarehouseList = ({ warehouses, deleteWarehouse }) => {
           </div>
           <button
             onClick={() => {
+              router.push(`/warehouse/${warehouse._id}`);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => {
               deleteWarehouse(warehouse._id);
             }}
           >
