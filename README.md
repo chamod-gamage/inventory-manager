@@ -4,6 +4,8 @@ Inspired by the Shopify Backend Developer Challenge, I created a web application
 This project was primarily focused on backend development, so the frontend user interface is quite minimal.
 
 Go check it out on its Replit deployment at https://inventory-manager.chamodgamage.repl.co/.
+The Replit project is viewable here: https://replit.com/@ChamodGamage/inventory-manager#README.md
+Note that the deployment link works in its own tab.
 
 Here's a brief instructional video on how to use the application:
 https://www.loom.com/share/50b041d8441a4553955033d22ae6f6fd
