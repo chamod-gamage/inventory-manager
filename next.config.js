@@ -6,7 +6,13 @@ module.exports = {
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "https://replit.com/*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: [
+              "https://inventory-manager.chamodgamage.repl.co/*",
+              "https://replit.com/*",
+            ],
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
