@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-const WarehouseList = ({ warehouses }) => {
+const WarehouseList = ({ warehouses, deleteWarehouse }) => {
   const router = useRouter();
   return (
     <div className="warehouse-list">
@@ -16,6 +16,14 @@ const WarehouseList = ({ warehouses }) => {
           <div className="warehouse-list-item-location">
             Location: {warehouse.location}
           </div>
+          <button
+            onClick={() => {
+              deleteWarehouse(warehouse._id);
+            }}
+          >
+            Delete
+          </button>
+          <br />
           <br />
         </div>
       ))}

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function WarehouseListPage() {
   const [warehouses, setWarehouses] = useState([]);
+  const [error, setError] = useState("");
   const router = useRouter();
   useEffect(() => {
     const fetchData = async () => {
@@ -20,9 +21,36 @@ export default function WarehouseListPage() {
     fetchData();
   }, []);
 
+  const deleteWarehouse = async (id) => {
+    await fetch(
+      `${
+        process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      }/api/warehouse/${id}/delete`
+    )
+      .then(async (res) => {
+        if (!res.ok) {
+          console.log(res);
+          throw new Error((await res.json()).message);
+        } else {
+          return res.json();
+        }
+      })
+      .then((data) => {
+        setError("");
+        setWarehouses(warehouses.filter((warehouse) => warehouse._id !== id));
+      })
+      .catch((err) => {
+        setError("Error with deleting warehouse: " + err);
+      });
+  };
+
   return (
     <div>
-      <WarehouseList warehouses={warehouses} />
+      <WarehouseList
+        warehouses={warehouses}
+        deleteWarehouse={deleteWarehouse}
+      />
+      {error}
     </div>
   );
 }
